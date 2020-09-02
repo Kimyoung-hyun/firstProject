@@ -1,4 +1,4 @@
-package com.project.project;
+package project;
 
 
 public class MemberInfo {

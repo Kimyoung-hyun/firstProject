@@ -1,8 +1,7 @@
-package com.project.project;
+package project;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -12,8 +11,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
-import org.omg.CORBA.portable.InputStream;
-
 public class MyPage {
 
 	static MemberInfo m = new MemberInfo();
@@ -21,7 +18,7 @@ public class MyPage {
 	public static void main(String[] args) {
 		
 		try {
-			startPage();
+			//startPage();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -61,10 +58,15 @@ public class MyPage {
 		
         while (key != 0) {
             switch (key) {
-            	//case 1: 
-            	
-            	case 2: 
-            	search.nonmember();
+            	case 1:
+            		System.out.println("=============================================");
+            		System.out.println("\t♩♪♬ Top100 ♬♪♩");
+            		System.out.println("=============================================");
+            		pagingfile.page(project.Top100.top100());
+            		break;
+            	case 2:
+            		memberWithdraw();
+            		break;
                 case 3:
                     login();
                     break;
@@ -84,7 +86,7 @@ public class MyPage {
 	
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		
-		String path = "D:\\더미\\회원1\\" + m.getId() + "\\" + m.getId() + ".txt"; //이 경로
+		String path = "D:\\더미\\data\\음악데이터" + m.getId() + "\\" + m.getId() + ".txt"; //이 경로
 		
 		System.out.println();
 		System.out.println("=============================================");
@@ -102,7 +104,7 @@ public class MyPage {
         System.out.print("입력 ▶  ");
 		
 		if(reader.readLine().equals("1")) memberInfoModify();
-		else myPage();
+		else MM.Menu1();
 		
 		reader.close();
 			
@@ -115,7 +117,7 @@ public class MyPage {
 		
 		String[] members = new String[5];
 		
-		String path = "D:\\더미\\회원1\\" + m.getId() + "\\" + m.getId() + ".txt"; //이거
+		String path = "D:\\데이터\\회원데이터\\" + m.getId() + "\\" + m.getId() + ".txt"; //이거
 		
 		File file = new File(path);
 		
@@ -124,6 +126,10 @@ public class MyPage {
 		System.out.println("=============================================");
 		System.out.println("\t♩♪♬ 회원 정보 수정♬♪♩");
 		System.out.println("=============================================");
+		
+		System.out.print("아이디 ▶ "); //id
+		members[0] = reader.readLine();
+		m.setId(members[0]);
 		
 		System.out.print("비밀번호 ▶ "); //pwd
 		members[1] = reader.readLine();
@@ -150,8 +156,8 @@ public class MyPage {
 		writer.close();
 
 		System.out.println("회원정보수정이 완료되었습니다.");
-		MM.Menu1();
 		
+		memberInfo();
 		
 	}
 
@@ -201,7 +207,7 @@ public class MyPage {
                 	myType();
                     break;
                 case 5:
-                	startPage();
+                	MM.Menu1();
                 	break;
                    
             }
@@ -236,7 +242,7 @@ public class MyPage {
 		
 		for(int j=0; j<a.size(); j++) {
 		
-			String path = "D:\\더미\\회원1\\" + a.get(j) + "\\" + a.get(j) + "playlist.txt";
+			String path = "D:\\데이터\\회원데이터\\" + a.get(j) + "\\" + a.get(j) + "playlist.txt";
 			
 		
 			File file = new File(path);
@@ -262,7 +268,7 @@ public class MyPage {
 			
 				for(int i=0; i<list.size(); i++) {
 			
-				String mpath = "D:\\더미\\회원1\\" + list.get(i);
+				String mpath = "D:\\데이터\\음악데이터\\"+list.get(i);
 				
 				BufferedReader reader = new BufferedReader(new FileReader(mpath));
 		         
@@ -667,7 +673,7 @@ public class MyPage {
 	
 	private static List<String> sameAgeGender(String id) {
 		
-		  String path = "D:\\더미\\회원1\\" + id + "\\" + id + ".txt";
+		  String path = "D:\\더미\\data\\회원데이터\\" + id + "\\" + id + ".txt";
 	      String gender = "";
 	      String age = "";
 	      
@@ -691,7 +697,7 @@ public class MyPage {
 	      //동일한 성별과 나이대의 회원 저장용 
 	      List<String> idList = new ArrayList<String>();
 	      
-	      path = "F:\\더미\\회원1";
+	      path = "D:\\더미\\data\\회원데이터";
 	      
 	      File file = new File(path);
 	      File[] list = file.listFiles();
@@ -701,7 +707,7 @@ public class MyPage {
 	      for(File mem : list) {
 	         String realId = mem.getName();
 	         
-	         String path2 = "D:\\더미\\회원1\\" + realId + "\\" + realId + ".txt";
+	         String path2 = "D:\\더미\\data\\회원데이터\\" + realId + "\\" + realId + ".txt";
 	         
 	         
 	         try {
@@ -737,7 +743,7 @@ public class MyPage {
         System.out.println("\t♩♪♬ 위시 리스트 ♬♪♩");
         System.out.println("=============================================");
 		
-		String path = "D:\\더미\\회원1" + m.getId() + "\\" + m.getId() + "wishlist.txt"; 
+		String path = "D:\\더미\\data\\회원데이터\\" + m.getId() + "\\" + m.getId() + "wishlist.txt"; 
 		
 		File file = new File(path);
 		
@@ -777,7 +783,7 @@ public class MyPage {
 	public static void memberWithdraw() throws Exception{ //회원탈퇴
 		
 		
-		String dpath = "D:\\더미\\회원1\\" + m.getId();
+		String dpath = "D:\\데이터\\회원데이터\\" + m.getId();
 		
 		File file = new File(dpath);
 		
@@ -823,7 +829,6 @@ public class MyPage {
 			System.out.print("아이디(8~20자) ▶ "); //id
 			
 			members[0] = reader.readLine();
-		
 		
 			if(members[0].length() >= 8 && members[0].length() <= 20) {
 				break;
@@ -938,7 +943,7 @@ public class MyPage {
 		
 		}
 				
-		String dpath = "D:\\더미\\회원1\\" + members[0]; 
+		String dpath = "D:\\데이터\\회원데이터\\" + members[0]; 
 			
 		File dir = new File(dpath);
 
@@ -952,9 +957,6 @@ public class MyPage {
 		
 			dir.mkdir();
 			String path = dpath + "\\" + members[0] + ".txt";
-			String path1 = dpath + "\\"+members[0]+"playlist.txt";
-			FileOutputStream stream1 = new FileOutputStream(path1);
-			stream1.close();
 			File file = new File(path);
 			
 			FileWriter writer = new FileWriter(path);
@@ -965,7 +967,6 @@ public class MyPage {
 		}
 		
 		writer.close();
-		
 		System.out.println("회원가입이 완료되었습니다.");
 		
 		startPage();
@@ -990,7 +991,7 @@ public class MyPage {
 		System.out.print("비밀번호 ▶ ");
 		pwd = reader.readLine();
 		
-		String path = "D:\\더미\\회원1\\" + id + "\\" + id + ".txt"; //이거
+		String path = "D:\\데이터\\회원데이터\\" + id + "\\" + id + ".txt"; //이거
 		
 		
 		File dir = new File(path);

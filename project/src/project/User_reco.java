@@ -1,4 +1,4 @@
-package com.project.project;
+package project;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -23,7 +23,7 @@ public class User_reco {
 			Scanner scan = new Scanner(System.in);
 			Random rnd = new Random();
 			String[] name = new String[10];
-			String path= "D:\\더미\\유저추천게시판";
+			String path= "D:\\데이터\\유저추천게시판";
 			ArrayList<String> b = new ArrayList<String>(); 
 			File board = new File(path);
 			String[] user = board.list();
@@ -47,15 +47,19 @@ public class User_reco {
 				System.out.printf("%d.%s의 	노래추천\n",i+1,b.get(i));
 			}
 			System.out.println("---------------------------------------------");
-			
+			System.out.println("게시판 번호 입력 b.뒤로가기");
 			System.out.print("입력:");
-			int s = scan.nextInt();
-			
-			String bpath = "D:\\더미\\유저추천게시판\\"+b.get(s-1);
+			String s = scan.nextLine();
+			if(s.equals("b")) {
+				MM.recMenu();
+			}
+			else {
+			String bpath = "D:\\데이터\\유저추천게시판\\"+b.get(Integer.parseInt(s)-1);
 			BufferedReader reader = new BufferedReader(new FileReader(bpath));
 			String chk=null;
 			while((chk=reader.readLine())!=null){
 				System.out.println(chk);
+			}
 			}
 			System.out.println("=============================================");
 			System.out.println("1.검색 b.뒤로가기");
@@ -95,48 +99,34 @@ public class User_reco {
 			
 			switch (s){
 				case 1:
-					String mpath = "D:\\더미\\회원1\\"+user.get(1)+"\\"+user.get(1)+"playlist.txt";
+					String mpath = "D:\\데이터\\회원데이터\\"+user.get(1)+"\\"+user.get(1)+"playlist.txt";
 					BufferedReader reader = new BufferedReader(new FileReader(mpath));
 					String chk = null;
-					String con = reader.readLine();
 					while ((chk=reader.readLine())!=null) {
 						list.add(chk);
 					}
 					
 					System.out.printf("\t[%s의 플레이리스트]\t",user.get(0));
-					for(int i=0;i<10;i++) {
-						System.out.printf("%d.%s\n",i,list.get(0));
-					}
+					pagingfile.page(list);
 				break;
 				case 2:
 					System.out.printf("\t[%s의 플레이리스트]\t",user.get(1));
-					for(int i=0;i<10;i++) {
-						System.out.printf("%d.%s\n",i,list.get(1));
-					}
-					
+					pagingfile.page(list);
 				break;
 				case 3:
 					System.out.printf("\t[%s의 플레이리스트]\t",user.get(2));
-					for(int i=0;i<10;i++) {
-						System.out.printf("%d.%s\n",i,list.get(2));
-					}
+					pagingfile.page(list);
 				break;
 				case 4:
 					System.out.printf("\t[%s의 플레이리스트]\t",user.get(3));
-					for(int i=0;i<10;i++) {
-						System.out.printf("%d.%s\n",i,list.get(3));
-					}
+					pagingfile.page(list);
 				break;
 				case 5:
 					System.out.printf("\t[%s의 플레이리스트]\t",user.get(4));
-					for(int i=0;i<10;i++) {
-						System.out.printf("%d.%s\n",i,list.get(4));
-					}
+					pagingfile.page(list);
 				break;
 			}
 		System.out.println("---------------------------------------------");
-		System.out.print("입력:");
-		s = scan.nextInt();
 		System.out.println("1.재생 2.이전으로 3. 메인으로 4.검색");
 		s = scan.nextInt();
 		switch (s) {
@@ -158,7 +148,7 @@ public class User_reco {
 		}
 		}
 		public static String favoriteList(String id) {
-			String path = "D:\\더미\\회원1\\" + id + "\\" + id + "playlist.txt";
+			String path = "C:\\데이터\\회원데이터\\" + id + "\\" + id + "playlist.txt";
 			File file= new File(path);
 			//내 노래 저장
 			List<String> songs = new ArrayList<String>();
@@ -267,14 +257,18 @@ public class User_reco {
 			System.out.println("=============================================");
 			System.out.println("1.다른유저의 플레이 리스트");
 			System.out.println("2.유저 추천 게시판");
+			System.out.println("b.뒤로 가기");
 			System.out.println("---------------------------------------------");
 			System.out.print("입력:");
-			int s = scan.nextInt();
-			if(s ==1) {
+			String s = scan.nextLine();
+			if(s.equals("1")) {
 				Uplaylist();
 			}
-			else if(s==2){
+			else if(s.equals("2")){
 				Uboard();
+			}
+			else if(s.equals("b")) {
+				MM.Menu1();
 			}
 		}
 		}

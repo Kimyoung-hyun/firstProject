@@ -1,4 +1,4 @@
-package com.project.project;
+package project;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -12,7 +12,7 @@ public class search {
 		nonmember();
 	}
 	public static void msearch() throws IOException, FileNotFoundException, Exception {
-		File file = new File("D:\\더미\\music"); 
+		File file = new File("D:\\데이터\\음악데이터"); 
 		MemberInfo m = new MemberInfo();
 		List<String> songList = new ArrayList<>();
 	
@@ -91,7 +91,7 @@ public class search {
 
 	public static void nonmember() throws Exception {
 		
-		File file = new File("D:\\더미\\music"); 
+		File file = new File("D:\\데이터\\음악데이터"); 
 		MemberInfo m = new MemberInfo();
 		List<String> songList = new ArrayList<>();
 	

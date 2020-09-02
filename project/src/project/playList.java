@@ -1,4 +1,4 @@
-package com.project.project;
+package project;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -16,12 +16,11 @@ class playlist {
 		
 	}
 public static void playlist() throws Exception {
-	
 	Scanner sc = new Scanner(System.in);
 	//login에서 아이디 연동필요
 	MemberInfo m = new MemberInfo();
 	
-	String path ="D:\\더미\\회원1\\"+m.getId()+"\\"+m.getId()+"playlist.txt";
+	String path ="D:\\데이터\\회원데이터"+m.getId()+"\\"+m.getId()+"playlist.txt";
 	File dir = new File(path);
 	int pagecnt =1,cnt=10,num=0,x=0;
 	int n=1;
@@ -33,24 +32,36 @@ public static void playlist() throws Exception {
 	
 	while (scan.hasNextLine())
 		s1.add(scan.nextLine());
-		if(scan.hasNext()==false) {
-			System.out.println("플레이리스트가 없습니다.");
-		}
+		
 	
 	
 	for(int i=0; ;i++) {
 	
 	System.out.println("=============================================");
 	System.out.println("	♩♪♬ 재생 화면 ♬♪♩");
-
-		pagingfile.page(s1);
+	System.out.println("=============================================");
 	
+	if(s1.size()<10) {
+	for(int j=0;j<s1.size();j++) {
+		
+		System.out.printf("%d.%s\n",n,s1.get(s1.size()));
+		n++;
+	}
+	}
+	else if(s1.size()>pagecnt*10){
+		 for(int j=0;j<10;j++) {
+
+		 System.out.printf(s1.get(j));
+			
+		}
+	}
+		
 	System.out.println("=============================================");
 	System.out.println("1.재생");
 	System.out.println("2.이전 페이지");
 	System.out.println("3.다음 페이지");
-	System.out.println("4.이전 메뉴");
 	System.out.println("5.삭제");
+	System.out.println("4.이전 메뉴");
 	System.out.println("현재 페이지:"+pagecnt);
 	System.out.println("---------------------------------------------");
 	System.out.print("입력 ▶ ");
@@ -107,16 +118,13 @@ public static void playlist() throws Exception {
 	}
 		
 	else if(a==5) {
-		
 		System.out.println("삭제할 번호입력");
 		Scanner scn = new Scanner(System.in);
 		String nom = scn.nextLine();
 		List g1 = new ArrayList<String>();
 		g1.add(s1.get((Integer.parseInt(nom))));
 		s1.remove((Integer.parseInt(nom)));
-		
 		break;
-		
 	}
 
 	

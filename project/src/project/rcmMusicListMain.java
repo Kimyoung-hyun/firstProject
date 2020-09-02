@@ -1,4 +1,4 @@
-package com.project.project;
+package project;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -21,8 +21,8 @@ class rcmMusicListMain {
 	//private static String gv_age = "14";
 	private static String gv_age = m.getAge();
 	
-	private static String gv_dirMemPath 	= "D:\\더미\\회원1\\"; //회원파일
-	private static String gv_dirMusicPath 	= "D:\\더미\\music\\";  //뮤직파일
+	private static String gv_dirMemPath 	= "D:\\데이터\\회원데이터\\"; //회원파일
+	private static String gv_dirMusicPath 	= "D:\\데이터\\음악데이터\\";  //뮤직파일
 	
 	//생성자
 	public rcmMusicListMain(String title, String singer, String genre1, String genre2, int playNum, int love) {
@@ -114,7 +114,11 @@ class rcmMusicListMain {
 		String stSongNm = "";
 		String stSongInfo = "`";
 		for(int i=0; i < myPlayList.size(); i++) {
+			if(i==myPlayList.size()-1) {
+				stSongNm = myPlayList.get(i)+".mp3";
+			}else {
 			stSongNm = myPlayList.get(i); //노래제목-가수.mp3
+			}
 			myPlaySongInfo = new ArrayList<String>();
 			myPlaySongInfo = getArrByFile(gv_dirMusicPath,stSongNm);
 			stSongInfo = myPlaySongInfo.get(0);
@@ -123,6 +127,7 @@ class rcmMusicListMain {
 			mp3Info = stSongInfo.split(","); 
 			
 			list.add(new rcmMusicListMain(mp3Nm[0], mp3Nm[1].replace(".mp3", ""), mp3Info[0], mp3Info[1], Integer.parseInt(mp3Info[2]), Integer.parseInt(mp3Info[3])));
+
 		}
 		return list;
 	}
@@ -169,8 +174,11 @@ class rcmMusicListMain {
 	    String stMpInfo;
 		//4. 읽어온 파일을 LayOut에 맞게 생성자로 MusicList Class 초기화하며 생성
 		for(i=0; i<memFileMusicArr.size(); i++) {
+//			System.out.println(i+"."+memFileMusicArr.get(i));
+			if(i==315) {
+				System.out.println(memFileMusicArr.set(315, "EV01-럼블피쉬.mp3"));
+			}
 			wkMp3 = memFileMusicArr.get(i).split("-");
-			
 			stMpInfo = getArrByFile(gv_dirMusicPath, memFileMusicArr.get(i)).get(0);
 			wkMp3Info = stMpInfo.split(",");
     		list.add(new rcmMusicListMain(wkMp3[0], wkMp3[1].replace(".mp3", ""), wkMp3Info[0], wkMp3Info[1], Integer.parseInt(wkMp3Info[2]), Integer.parseInt(wkMp3Info[3])));

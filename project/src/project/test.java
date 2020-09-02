@@ -1,4 +1,4 @@
-package com.project.project;
+package project;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -19,7 +19,7 @@ public class test {
 	static MemberInfo m = new MemberInfo();
 	static {
 		scan = new Scanner(System.in);
-		id = "chanu2757";
+		id = m.getId();
 		rnd = new Random();
 	}
 	
@@ -39,9 +39,9 @@ public class test {
 
 		
 		//로그인한 아이디의 최애 장르
-		System.out.println(favoriteList("baba2430"));
+		System.out.println(favoriteList(m.getId()));
 		//로그인한 아이디의 최애 장르와 최애 장르가 같은 사람들 ArrayList<String> id담겨있음
-		System.out.println(m2(favoriteList("baba2430")));
+		System.out.println(m2(favoriteList(m.getId())));
 		
 		
 		
@@ -54,7 +54,7 @@ public class test {
 	 static ArrayList<String> m2(String string) {
 		
 		//string == 최애 장르
-		String path  ="D:\\더미\\회원1";
+		String path  ="D:\\데이터\\회원데이터";
 		File file  = new File(path);
 		
 		File[] names = file.listFiles();
@@ -100,7 +100,7 @@ public class test {
 	
 
 	public static String favoriteList(String id) {
-		String path = "F:\\더미\\회원1\\" + id + "\\" + id + "playlist.txt";
+		String path = "D:\\데이터\\회원데이터\\" + id + "\\" + id + "playlist.txt";
 		File file= new File(path);
 		//내 노래 저장
 		List<String> songs = new ArrayList<String>();

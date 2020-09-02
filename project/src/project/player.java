@@ -1,4 +1,4 @@
-package com.project.project;
+package project;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -12,16 +12,6 @@ public class player {
 public static void main(String[] args)throws Exception {
 	MemberInfo m = new MemberInfo();
 	memPlay();
-	m1();
-}
-
-public static void m1() {
-	MemberInfo m = new MemberInfo();
-	String path ="D:\\더미\\회원1\\"+m.getId()+"\\"+m.getId()+"playlist.txt";
-	File file = new File(path);
-	
-	
-	
 }
 
 public static void nMemPlay(String input) throws Exception {
@@ -127,16 +117,15 @@ else if(a.equals("b")) {
 public static void memPlay() throws Exception{ //ID받아옴
 	Scanner sc = new Scanner(System.in);
 	MemberInfo m = new MemberInfo();
-	String path = "D:\\더미\\회원1\\"+m.getId()+"\\"+m.getId()+"playlist.txt";
-	System.out.println(m.getId());
+	String path = "D:\\데이터\\회원데이터\\"+m.getId()+"\\"+m.getId()+"playlist.txt";
+	
 	File dir = new File(path);
 	String[] list = dir.list();  
 	int num=0,p=0,c=0;
 	
 	
-	path = "D:\\더미\\회원1\\"+m.getId()+"\\"+m.getId()+"playlist.txt";
+	//path = "F:\\더미\\회원1\\"+m.getId()+"\\"+m.getId()+".playlist.txt";
 //	path = "F:\\더미\\회원1\\chanu71720\\chanu71720playlist.txt";
-	
 	ArrayList<String> s1 = new ArrayList<String>();
 	BufferedReader reader = new BufferedReader(new FileReader(path));
 	String b=null;
@@ -145,8 +134,9 @@ public static void memPlay() throws Exception{ //ID받아옴
 	
 	}
 		c=s1.size()-1;
-		for(int i=0;i<s1.size();i++) {
+		for(int i=0;i<c;i++) {
 		num=1;
+		
 		System.out.println("=============================================");
 		System.out.println("	♩♪♬ 재생 화면♬♪♩");
 		System.out.println("=============================================");
@@ -182,14 +172,14 @@ public static void memPlay() throws Exception{ //ID받아옴
 				memPlay();
 			}
 			else if(a.equals("2")) {		//전곡으로 이동
-				c-=1;
+				c-=10;
 				if(c==0){ //첫번째 곡에서 뒤로하기시 마지막곡으로 
 					c=s1.size()-1;
 				}
 				System.out.println();
 			}
 			else if(a.equals("3")) {		//다음 곡으로 이동
-				if(c+1>s1.size()-1) {
+				if(c==s1.size()-1) {
 					c=0;
 				}
 				else {
@@ -240,7 +230,7 @@ public static void memPlay() throws Exception{ //ID받아옴
 
 public static void plusMusic(String mname)throws Exception{
 	MemberInfo m = new MemberInfo();
-	String path ="D:\\더미\\회원1\\"+m.getId()+"\\"+m.getId()+"playlist.txt";
+	String path ="D:\\데이터\\회원데이터\\"+m.getId()+"\\"+m.getId()+"playlist.txt";
 	File file = new File(path);
 
 //	FileOutputStream stream = new FileOutputStream(path, true);	

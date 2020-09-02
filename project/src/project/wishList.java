@@ -1,4 +1,4 @@
-package com.project.project;
+package project;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -22,12 +22,12 @@ public class wishList {
 		
 	}
 
-	private static void wishList() {
+	static void wishList() {
 		
 		System.out.println("===============================");		
 		System.out.println("위시리스트 메뉴입니다.");
 		System.out.println("===============================");
-		wishList();
+		
 		
 		while(true) {
 		
@@ -48,7 +48,7 @@ public class wishList {
 			String singer = scan.nextLine();
 			
 			//위시리스트 메뉴에 추가 
-			String path = "F:\\회원데이터\\" + id + "\\" + id + "wishlist.txt";
+			String path = "D:\\데이터\\회원데이터\\" + id + "\\" + id + "wishlist.txt";
 			try {
 				BufferedWriter writer = new BufferedWriter(new FileWriter(path , true)); //이어쓰기
 				

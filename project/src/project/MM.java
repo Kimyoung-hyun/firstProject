@@ -1,8 +1,6 @@
-package com.project.project;
+package project;
 
 import java.util.Scanner;
-
-import com.project.music.Mmenu;
 
 public class MM {
 public static void main(String[] args)throws Exception {
@@ -14,42 +12,37 @@ public static void main(String[] args)throws Exception {
 
 public static void recMenu() throws Exception{
 	Scanner scan = new Scanner(System.in);
-	Mmenu menu = new Mmenu();
 	for(;;) {
-	
 	System.out.println("=============================================");
-	System.out.println("\t♩♪♬ 추천 ♬♪♩");
+	System.out.println("\t♩♪♬[추천] ♬♪♩");
 	System.out.println("=============================================");
 	System.out.println("1.유저");
 	System.out.println("2.장르");
 	System.out.println("3.시간");
 	System.out.println("4.계절");
 	System.out.println("5.가수별");
-	System.out.println();
+	System.out.println("b.뒤로가기");
 	System.out.println("=============================================");
 	System.out.print("번호:");
-	int cho = scan.nextInt();
-	if(cho==1) {
+	String cho = scan.nextLine();
+	if(cho.equals("1")) {
 		User_reco.recoM();
 	}
-	if(cho==2) {
+	else if(cho.equals("2")) {
 		RecommendGenre.main(null);;
 	}
-	if(cho==3) {
+	else if(cho.equals("3")) {
 		PickTimeNum.timeList();
 		
 	}
-	if(cho==4) {
+	else if(cho.equals("4")) {
 		PickSeasonNum.seasonList();
-		
 	}
-	if(cho==5) {
-//		RecommendSinger.main(null);
-		RecommendSinger.main(null);
-		
+	else if(cho.equals("5")) {
+		RecommendSinger.main(null);	
 	}
-	if((char)cho=='b') {
-		recMenu();
+	else if(cho.equals("b")) {
+		MM.Menu1();
 	}
 	}
 	
@@ -59,7 +52,7 @@ public static void recMenu() throws Exception{
 static void Menu1() throws Exception{
 	Scanner scan = new Scanner(System.in);
 	MemberInfo m = new MemberInfo();
-	Mmenu menu = new Mmenu();
+
 	for(;;) {
 	System.out.println("=============================================");
 	System.out.printf("	♩♪♬ %s님 안녕하세요! ♬♪♩\n",m.getId());
@@ -69,10 +62,9 @@ static void Menu1() throws Exception{
 	System.out.println("3.검색");
 	System.out.println("4.추천");
 	System.out.println("5.Top100");
-	System.out.println("6.플레이리스트");
-	System.out.println("7.로그아웃");
+	System.out.println("6.로그아웃");
 	System.out.println("---------------------------------------------");
-	System.out.print("입력 ▶:");
+	System.out.print("입력 ▶");
 	int cho = scan.nextInt();
 
 	if(cho==1) {
@@ -91,14 +83,14 @@ static void Menu1() throws Exception{
 		System.out.println("=============================================");
 		System.out.println("\t♩♪♬ Top100 ♬♪♩");
 		System.out.println("=============================================");
-		pagingfile.page(com.project.project.Top100.top100());
+		pagingfile.page(project.Top100.top100());
 	}
 	else if (cho==6) {
-		playlist.playlist();
+		Menu();
 	}
 	
 	else if (cho==7) {
-		Menu();
+		playlist.playlist();
 	}
 	
 	}
@@ -108,9 +100,7 @@ static void Menu1() throws Exception{
 public static void Menu() throws Exception {
 	//비회원 상태창
 	Scanner scan = new Scanner(System.in);
-	Mmenu menu = new Mmenu();
 	for(;;) {
-		Image.main(null);
 		System.out.println("=============================================");
 		System.out.println("\t♩♪♬ 시작 화면 ♬♪♩");
 		System.out.println("=============================================");
@@ -126,7 +116,7 @@ public static void Menu() throws Exception {
 		System.out.println("=============================================");
 		System.out.println("\t♩♪♬ Top100 ♬♪♩");
 		System.out.println("=============================================");
-		pagingfile.page(com.project.project.Top100.top100());
+		pagingfile.page(project.Top100.top100());
 	}
 	else if (cho==2) {
 		search.nonmember();

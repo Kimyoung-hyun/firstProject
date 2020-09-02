@@ -1,4 +1,4 @@
-package com.project.project;
+package project;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -53,9 +53,10 @@ public class RecommendSinger {
 		    	out = favoritSingerRecom(message);
 		    	//System.out.println("s");
 	//			break;
-//			}else if(message.equals("h")) {
-//				out = "h";
-				//break;
+			}else if(message.equals("b")) {
+				out = "b";
+				MM.recMenu();
+				break;
 		    }else {
 		    	System.out.println("정상적인 접근이 아닙니다 다시 입력하세요.");
 //		    	RecommendGenre.pause();
@@ -91,6 +92,7 @@ public class RecommendSinger {
 //				System.out.println("자주 들은 가수");
 				System.out.println("\t♩♪♬ 자주 들은 가수 ♬♪♩");
 				System.out.println("=============================================");
+				System.out.printf("당신이 ");
 			}else {
 				System.out.println("=============================================");
 //				System.out.println("같은 나이대 추천");

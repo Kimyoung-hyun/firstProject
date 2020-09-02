@@ -1,4 +1,4 @@
-package com.project.project;
+package project;
 
 import java.io.BufferedReader;
 import java.io.FileOutputStream;
@@ -33,7 +33,7 @@ public class RecommendGenre {
 	
 	public static void goPlay() {
 
-		System.out.println("재생화면으로 이동합니다.");
+		
 	}
 
 
@@ -78,8 +78,8 @@ public class RecommendGenre {
 //		    	goHome();
 //		    	break;
 		    if("j".equals(out)) {
-//	    	goPlay();
-//		    	player.plusMusic();
+//		    	goPlay();
+//		    	player.memPlay();
 		    	break;
 		    }
 		}
@@ -209,15 +209,6 @@ public class RecommendGenre {
 //			System.out.println("나의 장르");
 			System.out.println("\t♩♪♬나의 장르♬♪♩");
 			System.out.println("=============================================");
-	         List<String> genres1 = rcmMusicListMain.getL1Genres();
-	         List<String> genres2 = rcmMusicListMain.getL2Genres();         
-	         //장르 List 합치기
-	         List <String> genres = new ArrayList<String>(genres1);
-	         genres.addAll(genres2);   
-	         if(genres.size()<1) {
-	            System.out.println("추천에 필요한 데이터가 부족합니다. 많은 이용 바랍니다.\n");
-	            break;
-	         }
 			System.out.printf("당신이 제일 좋아하는 장르는 [%s] 입니다.\n",getFavoritGan());
 	         System.out.println("---------------------------------------------");
 			System.out.printf("1. [%s] 추천! \nb. 뒤로가기 \n",getFavoritGan());
@@ -325,7 +316,6 @@ public class RecommendGenre {
 					message = "j";
 					title = pList.get(i).get("TITLE");
 					singer = pList.get(i).get("ITEM");
-					
 					player.plusMusic(title + "-" + singer);
 					player.memPlay();
 				

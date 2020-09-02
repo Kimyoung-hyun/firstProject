@@ -1,4 +1,4 @@
-package com.project.project;
+package project;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -40,8 +40,8 @@ public class inputMusic {
 
 	static List<String> inputMusic(String id2)  {
 		
-		String path = "F:\\더미\\회원\\" + id2 + "\\" + id2 + "playlist.txt"; //회원 플레이리스트
-		String path2 = "F:\\더미\\music"; //음악파일
+		String path = "D:\\데이터\\회원데이터" + id2 + "\\" + id2 + "playlist.txt"; //회원 플레이리스트
+		String path2 = "D:\\데이터\\음악데이터"; //음악파일
 		
 		File file = new File(path2);
 		File[] mlist = file.listFiles();

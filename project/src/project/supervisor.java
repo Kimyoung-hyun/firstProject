@@ -1,4 +1,4 @@
-package com.project.project;
+package project;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -34,7 +34,7 @@ public class supervisor {
 		List<String> mlist = new ArrayList<String>();
 		
 		
-		File file = new File("F:\\더미\\회원1");
+		File file = new File("C:\\더미\\회원1");
 		File[] list = file.listFiles();
 	
 		
@@ -196,7 +196,7 @@ public class supervisor {
 				scan.skip("\r\n");
 
 				if (answer2 == 1) {
-					File newSong = new File("F:\\더미\\music\\" + title + "-" + singer + ".mp3");
+					File newSong = new File("C:\\더미\\data\\음악데이터\\" + title + "-" + singer + ".mp3");
 					try {
 						BufferedWriter writer = new BufferedWriter(new FileWriter(newSong));
 						writer.write(genre1 + "," + genre2 + "," + 0 + "," + 0);
@@ -352,7 +352,7 @@ public class supervisor {
 			if(!answer.toLowerCase().equals("b")) {
 				int count = Integer.parseInt(answer);
 				String name = resultList.get(count-1);
-				File file = new File("F:\\더미\\music\\" + name + ".mp3");
+				File file = new File("C:\\더미\\data\\음악데이터\\" + name + ".mp3");
 				
 				file.delete();
 				resultList.remove(count-1);
@@ -376,7 +376,7 @@ public class supervisor {
 
 	//음악 파일 불러오기
 	static ArrayList<File> inputMusic() {
-		File file = new File("F:\\더미\\music");
+		File file = new File("D:\\데이터\\음악데이터");
 		File[] list = file.listFiles();
 		ArrayList<File> mlist = new ArrayList<File>();
 		
@@ -675,7 +675,7 @@ public class supervisor {
 				String id = meminfo2.get(num - 1)[0];
 				
 				
-				String path = "F:\\더미\\회원1\\" + id;
+				String path = "D:\\데이터\\음악데이터\\" + id;
 				File dir = new File(path);
 			
 				File[] delmemlist = dir.listFiles(); //파일리스트 뽑기
@@ -726,7 +726,7 @@ public class supervisor {
 
 	static ArrayList<String[]> inputMember() {
 		//멤버 불러오기, 반환값 어레이리스트
-		String path = "F:\\더미\\회원1";
+		String path = "D:\\데이터\\회원데이터";
 		File file = new File(path);
 		File[] list = file.listFiles();
 		

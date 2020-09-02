@@ -1,4 +1,4 @@
-package com.project.project;
+package project;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -17,7 +17,7 @@ public class Top100 {
 		ArrayList<Data> data = new ArrayList<Data>();
 		ArrayList<String> top100List = new ArrayList<String>();
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		File dir = new File("D:\\더미\\music");
+		File dir = new File("D:\\데이터\\음악데이터");
 		
 		if (dir.exists()) {
 
@@ -36,7 +36,7 @@ public class Top100 {
 			try {
 			for (int i = 0; i < count - 1; i++) {
 				// 디렉토리에 있는 음악파일 하나씩 읽기
-				String path = String.format("D:\\더미\\music\\%s", dir.list()[i]);
+				String path = String.format("D:\\데이터\\음악데이터\\%s", dir.list()[i]);
 
 				File file = new File(path);
 				BufferedReader reader1 = new BufferedReader(new FileReader(file));

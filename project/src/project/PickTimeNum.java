@@ -1,4 +1,4 @@
-package com.project.project;
+package project;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -11,7 +11,7 @@ public class PickTimeNum {
 	public static void timeList() throws Exception {
 
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		File dir = new File("D:\\더미\\music");
+		File dir = new File("D:\\데이터\\음악데이터");
 
 		if (dir.exists()) {
 
@@ -33,15 +33,15 @@ public class PickTimeNum {
 			// 장르로 리스트 정리
 			for (int i = 0; i < count - 1; i++) {
 				// 디렉토리에 있는 음악파일 하나씩 읽기
-				String path = String.format("D:\\더미\\music\\%s", dir.list()[i]);
-				
+				String path = String.format("D:\\데이터\\음악데이터\\%s", dir.list()[i]);
+
 				File file = new File(path);
 				BufferedReader reader1 = new BufferedReader(new FileReader(file));
 
 				// ArrayList<String> list1 = new ArrayList<String>();
 				// 음악파일의 데이터를 line에 저장
 				String line = reader1.readLine();
-				//System.out.println(line);
+
 				String[] temp = line.split(",");
 
 				// 파일명 + 장르를 저장
@@ -166,16 +166,11 @@ public class PickTimeNum {
 					
 					System.out.println("---------------------------------------------");
 					
-
 					for (int i = 0; i < menu.size(); i++) {
-
 						if (input2.equals(menu.get(i).split("=")[0])) {
-							System.out.printf("[%s]를 재생합니다.\n", menu.get(i).split("=")[1]);
-							System.out.println("b. 뒤로가기");
-							String input3 = reader.readLine();
-							if(input3.equals("b")) {
-								flag = false;
-							}
+							player.plusMusic(menu.get(i).split("=")[1]);
+							player.memPlay();
+							
 						}
 						
 

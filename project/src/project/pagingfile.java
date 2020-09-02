@@ -1,4 +1,4 @@
-package com.project.project;
+package project;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -14,7 +14,7 @@ public class pagingfile {
 		
 
 		//페이징할 ArrayList만들기 프로젝트에 합치는거 x 개인 확인용
-		String path = "D:\\더미\\회원1";
+		String path = "D:\\데이터\\음악데이터";
 		File file = new File(path);
 		File[] list = file.listFiles();
 		ArrayList<File> slist = new ArrayList<File>();
@@ -254,10 +254,9 @@ public class pagingfile {
 				//첫페이지 일 경우
 				if(count == 0) {
 					count = depart.size() - 1 ;
-					num = depart.size() * 10 -9;
-				} else {
+				}
+				else {
 					count = count-1;
-					num -= 20;
 				}
 			} else if(answer == 2){
 				//다음페이지
@@ -265,13 +264,11 @@ public class pagingfile {
 				//마지막 페이지일 경우
 				if(count == depart.size() -1 ) {
 					count = 0;
-					num = 1;
 				} else {
 					count = count+1;
 					
 				}
 			} else {
-				System.out.println("페이지 프로그램을 종료합니다.");
 				break;
 			}
 			
