@@ -176,7 +176,7 @@ class rcmMusicListMain {
 		for(i=0; i<memFileMusicArr.size(); i++) {
 //			System.out.println(i+"."+memFileMusicArr.get(i));
 			if(i==315) {
-				System.out.println(memFileMusicArr.set(315, "EV01-럼블피쉬.mp3"));
+				memFileMusicArr.set(315, "EV01-럼블피쉬.mp3");
 			}
 			wkMp3 = memFileMusicArr.get(i).split("-");
 			stMpInfo = getArrByFile(gv_dirMusicPath, memFileMusicArr.get(i)).get(0);
