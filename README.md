@@ -1,6 +1,5 @@
 ##  음악 추천 프로그램
-
-
+<img src="https://user-images.githubusercontent.com/66768469/92095464-ac8c8880-ee10-11ea-9487-e56940a81df6.png"></img>
     
 ###  Introduction
 <table>
@@ -37,7 +36,7 @@
     </tr>
     <tr>
         <th>개발도구</th>
-        <th colspan="3">Eclipse IDE, Oracle DBMS</th>
+        <th colspan="3">Eclipse IDE</th>
     </tr>
 </table>
 
@@ -47,18 +46,13 @@
 <table>
     <tr>
         <th>관리자</th>
-        <td> </td>
+        <td> 음악을 추가하고 회원을 관리</td>
     </tr>
     <tr>
         <th>회원</th>
-        <td>교육센터의 프로그램을 수강하는 학생</td>
+        <td> 새로운 음악을 추천받고 싶은 회원</td>
     </tr>
 </table>
-
-### ERD 
-<!--이미지 삽입-->
-<img src=""></img>
-
 
 ### Extra Functions
 <img src=""></img>
