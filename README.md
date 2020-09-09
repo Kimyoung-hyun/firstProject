@@ -90,6 +90,5 @@
         <th>회원</th>
         <th>회원</th>
     </tr>
-  
-    </table>
+</table>
                                                                                                                                
