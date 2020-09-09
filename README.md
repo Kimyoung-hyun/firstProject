@@ -14,7 +14,7 @@
         <th>Oracle DBMS & JDBC api를 활용한 콘솔 프로그램</th>
         <th>개발인원</th>
         <th>팀 / 6명<br>
-            <a href="https://github.com/">김영현</a> | <a href="https://github.com/chanu2757">김찬우</a>｜<a href="https://github.com/">조윤경</a>｜<a href="https://github.com/">천정주</a>｜<a href="https://github.com/">홍혜림</a>｜<a href="https://github.com/">이예지</a> 
+            <a href="https://github.com/Kimyoung-hyun">김영현</a> | <a href="https://github.com/chanu2757">김찬우</a>｜<a href="https://github.com/joyoonkyung">조윤경</a>｜<a href="https://github.com/Chun0903">천정주</a>｜<a href="https://github.com/">홍혜림</a>｜<a href="https://github.com/gsdldpwl">이예지</a> 
         </th>
     </tr>
     <tr>
