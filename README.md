@@ -7,11 +7,11 @@
         <th width="11%">프로젝트 명 </th>
         <th>프로젝트명</th>
         <th>개발기간</th>
-        <th>2020.05.29. ~ 2020.06.17.</th>
+        <th>2020.04.27~2020.05.20(23일간)</th>
     </tr>
     <tr>
         <th>프로젝트 성격</th>
-        <th>Oracle DBMS & JDBC api를 활용한 콘솔 프로그램</th>
+        <th>JAVA를 이용한 콘솔프로젝트</th>
         <th>개발인원</th>
         <th>팀 / 6명<br>
             <a href="https://github.com/Kimyoung-hyun">김영현</a> | <a href="https://github.com/chanu2757">김찬우</a>｜<a href="https://github.com/joyoonkyung">조윤경</a>｜<a href="https://github.com/Chun0903">천정주</a>｜<a href="https://github.com/">홍혜림</a>｜<a href="https://github.com/gsdldpwl">이예지</a> 
