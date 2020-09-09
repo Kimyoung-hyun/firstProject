@@ -52,9 +52,44 @@
         <th>회원</th>
         <td> 새로운 음악을 추천받고 싶은 회원</td>
     </tr>
-</table>
-
-### Extra Functions
-<img src=""></img>
-
-                                                                                                                                      
+    <tr>
+        <th>비회원</th>
+        <td> 새로운 음악을 추천받고 싶은 회원</td>
+    </tr>
+</table>    
+    
+### 역할
+<table>
+    <tr>
+        <th>업무 / 구성원</th>
+        <th>김영현</th>
+        <th>김찬우</th>
+        <th>조윤경</th>
+        <th>이예지</th>
+        <th>천정주</th>
+        <th>홍혜림</th>
+    </tr>
+    <tr>
+        <th>프로젝트 기획</th>
+        <th colspan="6">문서 작성, 회의, 의견제안</th>
+    </tr>
+    <tr>
+        <th>요구 분석</th>
+        <th colspan="6">문서 작성, 회의, 의견제안</th>
+    </tr>
+    <tr>
+        <th>데이터 설계</th>
+        <th colspan="6">문서 작성, 회의, 의견제안</th>
+    </tr>
+    <tr>
+        <th rowspan="6">역할</th>
+        <th>관리자</th>
+        <th>회원</th>
+        <th>회원</th>
+        <th>회원</th>
+        <th>회원</th>
+        <th>회원</th>
+    </tr>
+  
+    </table>
+                                                                                                                               
